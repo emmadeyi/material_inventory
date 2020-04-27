@@ -1,0 +1,22 @@
+{% load static %}
+<nav class="blue-grey blue-lighten-2">
+    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="fa fa-bars fa-2x"></i></a>
+    <div class="nav-wrapper">
+        <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'img/icon.png' %}" width="60%" alt=""></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li {% if 'docs' in request.path %} class="active" {% endif %}><a href="{% url 'docs' %}">Docs</a>
+            </li>
+            <li {% if 'requisition' in request.path %} class="active" {% endif %}><a
+                    href="{% url 'requisitions' %}">Requisition</a></li>
+            <li {% if 'incoming' in request.path %} class="active" {% endif %}><a
+                    href="{% url 'incomings' %}">Incoming</a></li>
+            <li><a href="#">Outgoing</a></li>
+            <li><a href="#">Waybills</a></li>
+            <li><a href="#">Stock</a></li>
+            <li><a href="#"><i class="fa fa-user-plus"></i> Register</a></li>
+            <li><a href="#"><i class="fa fa-sign-in"></i> Login</a></li>
+        </ul>
+    </div>
+    <div class="container">
+    </div>
+</nav>

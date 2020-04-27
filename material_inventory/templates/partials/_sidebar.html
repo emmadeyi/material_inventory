@@ -1,0 +1,22 @@
+{% load static %}
+<!-- Sidebar -->
+<ul id="slide-out" class="sidenav blue-grey blue-lighten-2">
+    <li>
+        <div class="user-view">
+            <a href="#user"><img class="circle" src="{% static 'img/avarta.png' %}"></a>
+            <a href="#name"><span class="white-text name">John Doe</span></a>
+            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+        </div>
+    </li>
+    <li><a class="white-text" href="#">Incoming <i class="fa fa-mail-reply white-text"></i> </a></li>
+    <li><a class="white-text" href="#">Outgoing <i class="fa fa-mail-forward white-text"></i> </a></li>
+    <li><a class="white-text" href="#">Waybills <i class="fa fa-files-o white-text"></i> </a></li>
+    <li><a class="white-text" href="#">Stock <i class="fa fa-list-ol white-text"></i> </a></li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li><a class="white-text" href="{% url 'docs' %}">Documentation <i class="fa fa-book white-text"></i> </a></li>
+    <li><a class="white-text" href="#">User Settings <i class="fa fa-user-md white-text"></i> </a></li>
+    <li><a class="white-text" href="#"> <i class="fa fa-cogs white-text"></i> Settings</a></li>
+    <li><a class="white-text" href="#"> <i class="fa fa-sign-out white-text"></i> Logout</a></li>
+</ul>

@@ -1,6 +1,138 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Home</h1>
 
+<section class="container">
+</section>
+
+<section class="container">
+    <div class="row grey-text text-lighten-4">
+        <div class="col s12">
+            <span></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m3 l3">
+            <ul class="collection with-header">
+                <li class="collection-header blue-grey blue-lighten-2 white-text">
+                    <span> <i class="fa fa-list-alt"></i> Requistions</span>
+                </li>
+                <li class="collection-item"><a class="grey-text text-darken-1" href="#"> <i
+                            class="fa fa-mail-reply grey-text text-darken-1"></i>
+                        Total </a> <span class="blue-grey blue-lighten-2 white-text badge">87</span></li>
+                <li class="collection-item"><a class="grey-text text-darken-1" href="#"> <i
+                            class="fa fa-mail-forward grey-text text-darken-1"></i>
+                        Approved </a> <span class="blue-grey blue-lighten-2 white-text badge">44</span></l i>
+                <li class="collection-item"><a class="grey-text text-darken-1" href="#"> <i
+                            class="fa fa-files-o grey-text text-darken-1"></i> Pending
+                    </a> <span class="blue-grey blue-lighten-2 white-text badge">33</span></li>
+                <li class="collection-item"><a class="grey-text text-darken-1" href="#"> <i
+                            class="fa fa-list-ol grey-text text-darken-1"></i> Denied
+                    </a> <span class="blue-grey blue-lighten-2 white-text badge">10</span>
+                </li>
+            </ul>
+            <ul class="collection with-header">
+                <li class="collection-header blue-grey blue-lighten-2 white-text">
+                    <span> <i class="fa fa-list-alt"></i> Server Info</span>
+                </li>
+                <li class="collection-item"><a class="grey-text text-darken-1" href="#"> <i
+                            class="fa fa-database grey-text text-darken-1"></i> Storage </a>
+                    <div class="progress">
+                        <div class="determinate" style="width: 70%"></div>
+                    </div>
+                </li>
+                <li class="collection-item"><a class="grey-text text-darken-1" href="#">
+                        Avg. Poll</a>
+                    <span class="blue-grey blue-lighten-2 white-text badge">150mb/s</span>
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col s12 m9 l9">
+            <ul class="collection">
+                <li class="collection-item blue-grey blue-lighten-2 white-text">
+                    <span> <i class="fa fa-tasks"></i> Application Overview</span>
+                </li>
+                <li class="collection-item">
+                    <div class="row">
+                        <div class="col s12 m4 l4">
+                            <div class="card grey lighten-4">
+                                <div class="card-content grey-text text-darken-3 center-align">
+                                    <span class="card-title"> <i class="fa fa-mail-reply"></i> 214 </span>
+                                    <p>Incoming</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4 l4">
+                            <div class="card grey lighten-4">
+                                <div class="card-content grey-text text-darken-3 center-align">
+                                    <span class="card-title"> <i class="fa fa-mail-forward"></i> 308 </span>
+                                    <p>Outgoing</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4 l4">
+                            <div class="card grey lighten-4">
+                                <div class="card-content grey-text text-darken-3 center-align">
+                                    <span class="card-title"> <i class="fa fa-files"></i> 403 </span>
+                                    <p>Waybills</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <hr>
+            <ul class="collection">
+                <li class="collection-item blue-grey blue-lighten-2 white-text">
+                    <span> <i class="fa fa-list"></i> Application Records</span>
+                </li>
+                <li class="collection-item">
+                    <div class="row">
+                        <div class="col s12">
+                            <table class="striped dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>Activity</th>
+                                        <th>User</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
+                                        </td>
+                                        <td>Tony Max</td>
+                                        <td>24th April 2020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing eli!
+                                        </td>
+                                        <td>Jane Williams</td>
+                                        <td>23th April 2020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.aliquam!
+                                        </td>
+                                        <td>John Doe</td>
+                                        <td>22th April 2020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
+                                        </td>
+                                        <td>Willy Smith</td>
+                                        <td>22th April 2020</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 {% endblock %}

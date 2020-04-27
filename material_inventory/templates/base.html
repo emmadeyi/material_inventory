@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="{% static 'img/icon.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'DataTables/datatables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'DataTables/Responsive-2.2.3/css/responsive.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'DataTables/Buttons-1.6.1/css/buttons.dataTables.min.css' %}">
     <title>Material Inventory</title>
 </head>
 
 <body>
+
+    <div class="nav">
+        <!-- Top Navbar-->
+        {% include 'partials/_navbar.html'  %}
+        <!-- Sidebar-->
+        {% include 'partials/_sidebar.html'  %}
+    </div>
+
+    <!-- Content-->
     {% block content %} {% endblock %}
+
+    <!-- Footer -->
+    {% include 'partials/_footer.html'  %}
+    <script src="{% static 'DataTables/jQuery-3.3.1/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
+    <script src="{% static 'DataTables/datatables.min.js' %}"></script>
+    <script src="{% static 'DataTables/Responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.dataTable').dataTable({
+                responsive: true,
+            });
+        });
+    </script>
 </body>
 
 </html>

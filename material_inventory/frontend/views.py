@@ -6,6 +6,6 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'frontend/index.html')
 
-def about(request):
-    return render(request, 'frontend/about.html')
+def docs(request):
+    return render(request, 'frontend/docs.html')
 
