@@ -1,1 +1,134 @@
-<h1>Edit</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col s12 m3 l3">
+            {% include './_side_nav.html' %}
+        </div>
+        <div class="col s12 m9 l9">
+            {% include 'partials/_alerts.html' %}
+            <ul class="collection">
+                <li class="collection-item blue-grey blue-lighten-2 white-text">
+                    <h5> <i class="fa fa-edit"></i> Edit - {{requisition.item }} </h5>
+                </li>
+                <li class="collection-item">
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <a href="{% url 'requisitions' %}" class="btn blue-grey blue-lighten-2">
+                                <i class="fa fa-arrow-left"></i> Go Back
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <form id="requisition_form" class="col s12" action="{% url 'edit_requisition' requisition.id %}"
+                            method="POST">
+                            {% csrf_token %}
+
+                            <input type="hidden" name="next" value="{{ request.path }}">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input placeholder="Item name" id="item" name="item" type="text" class="validate"
+                                        value="{{ requisition.item }}">
+                                    <label for="item">Item name</label>
+                                </div>
+                                <div class="col s6">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="quantity" type="number" name="quantity" class="validate"
+                                                value="{{ requisition.quantity}}">
+                                            <label for="quantity">Quantity</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="unit" type="text" name="unit" class="validate"
+                                                value="{{requisition.unit}}">
+                                            <label for="unit">Unit</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="description" name="description"
+                                        class="materialize-textarea">{{ requisition.description}} </textarea>
+                                    <label for="description">Item Description</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field  col s6">
+                                    <input id="due_date" name="due_date" type="text" class="validate datepicker"
+                                        value="{{ requisition.due_date.date }}">
+                                    <label for="due_date">Due Date </label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <select name="status">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        {% for key, value in status.items %}
+
+                                        <option value="{{ key }}" {% if requisition.status == key %} selected
+                                            {% endif %}>{{ value }}</option>
+
+                                        {% endfor %}
+
+                                    </select>
+                                    <label>Select Request Status</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    <select name="originator">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        {% for val in employee %}
+
+                                        <option value="{{ val.id }}" {% if requisition.originator.id == val.id %}
+                                            selected {% endif %}>{{ val.name }}</option>
+
+                                        {% endfor %}
+                                    </select>
+                                    <label>Select Originator </label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <select name="authorizer">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        {% for val in employee %}
+
+                                        <option value="{{ val.id }}" {% if requisition.authorizer.id == val.id %}
+                                            selected {% endif %}>{{ val.name }}</option>
+
+                                        {% endfor %}
+                                    </select>
+                                    <label>Select Authorizers</label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <select name="approver">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        {% for val in employee %}
+
+                                        <option value="{{ val.id }}" {% if requisition.approver.id == val.id %} selected
+                                            {% endif %}>{{ val.name }}</option>
+
+                                        {% endfor %}
+                                    </select>
+                                    <label>Select Approver</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <button class="btn blue-grey blue-lighten-2 right">
+                                        <i class="fa fa-save"></i> Update Request
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

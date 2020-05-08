@@ -31,10 +31,10 @@
     <!-- Footer -->
     {% include 'partials/_footer.html'  %}
     <script src="{% static 'DataTables/jQuery-3.3.1/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
     <script src="{% static 'DataTables/datatables.min.js' %}"></script>
     <script src="{% static 'DataTables/Responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
     <script src="{% static 'DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'materialize/js/materialize.min.js' %}"></script>
     <script src="{% static 'js/app.js' %}"></script>
 
     <script>
@@ -42,6 +42,18 @@
             $('.dataTable').dataTable({
                 responsive: true,
             });
+
+            $('select').formSelect();
+            $('.datepicker').datepicker();
+            $('.add_due_date').val('');
+
+            $('.timepicker').timepicker();
+        });
+
+        const toastHTML = document.querySelector('.toasts_alert');
+        if (toastHTML != null) M.toast({
+            html: toastHTML,
+            classes: 'rounded blue-grey grey-lighten-4'
         });
     </script>
 </body>

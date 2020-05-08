@@ -1,0 +1,15 @@
+{% if messages %}
+{% for message in messages %}
+<div class="toasts_alert">
+    <span>
+        {% if message.level == DEFAULT_MESSAGE_LEVEL_ERROR %}
+        Error:
+        {% else %}
+        {{ message.tags|title }}
+        {% endif %}
+        {{message}}
+    </span>
+    <!-- <button class="btn-flat toast-action">Undo</button> -->
+</div>
+{% endfor %}
+{% endif %}

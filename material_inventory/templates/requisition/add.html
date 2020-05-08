@@ -1,1 +1,113 @@
-<h1>Add</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col s12 m3 l3">
+            {% include './_side_nav.html' %}
+        </div>
+        <div class="col s12 m9 l9">
+            {% include 'partials/_alerts.html' %}
+            <ul class="collection">
+                <li class="collection-item blue-grey blue-lighten-2 white-text">
+                    <h5> <i class="fa fa-list-alt"></i> New Requistion </h5>
+                </li>
+                <li class="collection-item">
+                    <br>
+                    <div class="row">
+                        <div class="col s12">
+                            <a href="{% url 'requisitions' %}" class="btn blue-grey blue-lighten-2">
+                                <i class="fa fa-arrow-left"></i> Go Back
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <form id="requisition_form" class="col s12" action="{% url 'add_requisition' %}" method="POST">
+                            {% csrf_token %}
+
+                            <input type="hidden" name="next" value="{{ request.path }}">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    {{ newRequisition.item }}
+                                    <label for="item">Item name</label>
+                                    <span class="red-text"> {{ newRequisition.item.errors}}</span>
+                                </div>
+                                <div class="col s6">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            {{ newRequisition.quantity }}
+                                            <label for="quantity">Quantity</label>
+                                            <span class="red-text"> {{ newRequisition.quantity.errors}}</span>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            {{ newRequisition.unit }}
+                                            <label for="unit">Unit</label>
+                                            <span class="red-text"> {{ newRequisition.unit.errors}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    {{ newRequisition.description }}
+                                    <label for="description">Item Description</label>
+                                    <span class="red-text"> {{ newRequisition.description.errors}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    {{ newRequisition.due_date }}
+                                    <label for="due_date">Due Date</label>
+                                    <span class="red-text"> {{ newRequisition.due_date.errors}} </span>
+                                </div>
+                                <div class="input-field col s6">
+                                    <!-- <select name="status">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        {% for key, value in status.items %}
+
+                                        <option value="{{ key }}">{{ value }}</option>
+
+                                        {% endfor %}
+
+                                    </select> -->
+                                    {{ newRequisition.status }}
+                                    <label>Select Request Status</label>
+                                    <span class="red-text"> {{ newRequisition.status.errors}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    {{ newRequisition.originator }}
+                                    <label>Select Originator</label>
+                                    <span class="red-text"> {{ newRequisition.originator.errors}}</span>
+                                </div>
+                                <div class="input-field col s4">
+                                    {{ newRequisition.authorizer }}
+                                    <label>Select Authorizer</label>
+                                    <span class="red-text"> {{ newRequisition.authorizer.errors}}</span>
+                                </div>
+                                <div class="input-field col s4">
+                                    {{ newRequisition.approver }}
+                                    <label>Select Approver</label>
+                                    <span class="red-text"> {{ newRequisition.approver.errors}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <button class="btn blue-grey blue-lighten-2 right">
+                                        <i class="fa fa-save"></i> Submit Request
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

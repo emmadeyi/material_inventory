@@ -5,26 +5,13 @@
 <section class="container">
     <div class="row">
         <div class="col s12 m3 l3">
-            <ul class="collection with-header">
-                <li class="collection-header blue-grey blue-lighten-2 white-text">
-                    <span> <i class="fa fa-list"></i> Table of content</span>
-                </li>
-                <li class="collection-item"><a class="grey-text text-darken-1" href="#">
-                        Incoming </li>
-                <li class="collection-item"><a class="grey-text text-darken-1" href="#">
-                        Outgoing </li>
-                <li class="collection-item"><a class="grey-text text-darken-1" href="#">
-                        Waybill </li>
-                <li class="collection-item"><a class="grey-text text-darken-1" href="#">
-                        Stock </li>
-                <li class="collection-item"><a class="grey-text text-darken-1" href="#">
-                        Requistions </li>
-            </ul>
+            {% include './_side_nav.html' %}
         </div>
         <div class="col s12 m9 l9">
+            {% include 'partials/_alerts.html' %}
             <ul class="collection">
                 <li class="collection-item blue-grey blue-lighten-2 white-text">
-                    <h5> <i class="fa fa-mail-reply"></i> Incoming</h5>
+                    <h5> <i class="fa fa-list-alt"></i> Requistions</h5>
                 </li>
                 <li class="collection-item">
                     <div class="row">
@@ -32,133 +19,35 @@
                             <table class="striped dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Activity</th>
-                                        <th>User</th>
-                                        <th>Date</th>
+                                        <th>Item</th>
+                                        <th>Qty</th>
+                                        <th>Originator</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
+                                    {% if requisitions %}
+                                    {% for requisition in requisitions %}
                                     <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
+                                        <td>
+                                            <a href="{% url 'show_requisition' requisition.id %}">
+                                                {{requisition.item}}
+                                            </a>
                                         </td>
-                                        <td>Tony Max</td>
-                                        <td>24th April 2020</td>
+                                        <td>{{requisition.quantity}} ({{requisition.unit}})</td>
+                                        <td>{{requisition.originator}}</td>
+                                        <td>{{requisition.due_date}}</td>
+                                        <td>{{requisition.get_status_display}}</td>
                                     </tr>
+                                    {% endfor %}
+                                    {% else %}
                                     <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing eli!
-                                        </td>
-                                        <td>Jane Williams</td>
-                                        <td>23th April 2020</td>
+                                        <p>No data found</p>
                                     </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.aliquam!
-                                        </td>
-                                        <td>John Doe</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Willy Smith</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Tony Max</td>
-                                        <td>24th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing eli!
-                                        </td>
-                                        <td>Jane Williams</td>
-                                        <td>23th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.aliquam!
-                                        </td>
-                                        <td>John Doe</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Willy Smith</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Tony Max</td>
-                                        <td>24th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing eli!
-                                        </td>
-                                        <td>Jane Williams</td>
-                                        <td>23th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.aliquam!
-                                        </td>
-                                        <td>John Doe</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Willy Smith</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Tony Max</td>
-                                        <td>24th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing eli!
-                                        </td>
-                                        <td>Jane Williams</td>
-                                        <td>23th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.aliquam!
-                                        </td>
-                                        <td>John Doe</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Willy Smith</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Tony Max</td>
-                                        <td>24th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing eli!
-                                        </td>
-                                        <td>Jane Williams</td>
-                                        <td>23th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit.aliquam!
-                                        </td>
-                                        <td>John Doe</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, aliquam!
-                                        </td>
-                                        <td>Willy Smith</td>
-                                        <td>22th April 2020</td>
-                                    </tr>
+                                    {% endif %}
+
                                 </tbody>
                             </table>
                         </div>
